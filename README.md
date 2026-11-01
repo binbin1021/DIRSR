@@ -87,17 +87,7 @@ Adjust degradation settings in `data_tools/degradation_default.json`.
 
 ## Training
 
-### DIRSR
-
-Continue training from the SR checkpoint configured in `configs/train.json`. IDE and DAPE remain frozen.
-
-```bash
-python scripts/train.py --config configs/train.json --gpu 0
-```
-
-Use `--dry-run` to check paths, or `--resume` with a complete saved training state to resume a run. Masks are required; mask generation is not included.
-
-### IDE
+### 1. IDE
 
 IDE training follows the degradation-degree learning scheme of [MM-RealSR](https://github.com/TencentARC/MM-RealSR). The required upstream code is included in [`MM-RealSR/`](MM-RealSR).
 
@@ -109,9 +99,19 @@ IDE training follows the degradation-degree learning scheme of [MM-RealSR](https
 python training/ide/train_ide.py --config configs/ide.json --device cuda:0
 ```
 
-### DAPE
+### 2. DAPE
 
 DAPE follows [SeeSR](https://github.com/cswry/SeeSR). Use its official [DAPE training instructions](https://github.com/cswry/SeeSR#step3-training-for-dape) and [configuration](https://github.com/cswry/SeeSR/blob/main/basicsr/options/dape.yaml). The standalone DAPE training script is maintained in SeeSR.
+
+### 3. DIRSR
+
+Continue training from the SR checkpoint configured in `configs/train.json`. IDE and DAPE remain frozen.
+
+```bash
+python scripts/train.py --config configs/train.json --gpu 0
+```
+
+Use `--dry-run` to check paths, or `--resume` with a complete saved training state to resume a run. Masks are required; mask generation is not included.
 
 ## Evaluation
 
