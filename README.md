@@ -77,13 +77,24 @@ data/
 2. Keep masks at HR resolution; HR width and height must be 4× those of LR.
 3. Set the dataset paths in `configs/train.json`.
 
-To generate LR images:
+### Generate LR images
 
 ```bash
 python data_tools/make_lr.py --input-dir data/train/HR --output-dir data/train/LR --seed 42
 ```
 
 Adjust degradation settings in `data_tools/degradation_default.json`.
+
+### Generate foreground masks
+
+Prepare masks offline using the official [SAM3](https://github.com/facebookresearch/sam3) implementation:
+
+1. Input each **HR image** to SAM3.
+2. Segment it separately with class prompts such as `person`, `car`, `bus`, and `bike`.
+3. Merge all predicted object masks by **pixel-wise union** into one binary foreground mask.
+4. Save a single-channel PNG at HR resolution: **foreground = 255, background = 0**. Use the same filename as the paired HR image and place it in `data/train/mask/` or `data/val/mask/`.
+
+Save binary masks; Gaussian smoothing is applied automatically by the training loss. Masks and SAM3 are used only for training and are not required for inference.
 
 ## Training
 
@@ -111,7 +122,7 @@ Continue training from the SR checkpoint configured in `configs/train.json`. IDE
 python scripts/train.py --config configs/train.json --gpu 0
 ```
 
-Use `--dry-run` to check paths, or `--resume` with a complete saved training state to resume a run. Masks are required; mask generation is not included.
+Use `--dry-run` to check paths, or `--resume` with a complete saved training state to resume a run. Masks are required.
 
 ## Evaluation
 
