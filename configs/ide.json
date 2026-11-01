@@ -1,7 +1,7 @@
 {
   "project_root": ".",
-  "mmreal_root": "third_party/MM-RealSR",
-  "native_options": "third_party/MM-RealSR/options/MMRealSRNet_x4.yml",
+  "mmreal_root": "MM-RealSR",
+  "native_options": "MM-RealSR/options/MMRealSRNet_x4.yml",
   "experiment_dir": "outputs/ide_training",
   "warm_start": "weights/ide/warm_start.pth",
   "warm_start_sha256": null,
