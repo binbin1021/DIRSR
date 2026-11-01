@@ -53,6 +53,9 @@ python scripts/infer.py --config configs/inference.json --gpu 0
 
 ## Data Preparation
 
+- [M³FD](https://github.com/JinyuanLiu-CV/TarDAL)
+- [HM-TIR](https://github.com/Zihang-Chen/HM-TIR)
+
 For SR training, organize paired images and foreground masks as follows:
 
 ```text
@@ -80,7 +83,7 @@ To generate LR images:
 python data_tools/make_lr.py --input-dir data/train/HR --output-dir data/train/LR --seed 42
 ```
 
-Adjust degradation settings in `data_tools/degradation_default.json`. Dataset information is available in the [HM-TIR repository](https://github.com/Zihang-Chen/HM-TIR).
+Adjust degradation settings in `data_tools/degradation_default.json`.
 
 ## Training
 
