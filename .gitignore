@@ -1,0 +1,15 @@
+__pycache__/
+*.py[cod]
+.DS_Store
+.venv/
+outputs/
+logs/
+*.pth
+*.pt
+*.pkl
+*.ckpt
+*.safetensors
+*.bin
+weights/**
+!weights/**/
+!weights/**/.gitkeep

@@ -1,0 +1,45 @@
+{
+  "project_root": ".",
+  "mmreal_root": "third_party/MM-RealSR",
+  "native_options": "third_party/MM-RealSR/options/MMRealSRNet_x4.yml",
+  "experiment_dir": "outputs/ide_training",
+  "warm_start": "weights/ide/warm_start.pth",
+  "warm_start_sha256": null,
+  "seed": 20261007,
+  "validation_seed": 20261008,
+  "total_iters": 70000,
+  "source_batch_size": 6,
+  "num_workers": 5,
+  "queue_size": 90,
+  "lr": 0.0002,
+  "betas": [
+    0.9,
+    0.99
+  ],
+  "weight_decay": 0.0,
+  "ema_decay": 0.999,
+  "milestones": [
+    1000000
+  ],
+  "gamma": 0.5,
+  "validation_every": 2000,
+  "checkpoint_every": 1000,
+  "log_every": 50,
+  "print_every": 100,
+  "torch_cpu_threads": 4,
+  "output_order": [
+    "noise",
+    "blur"
+  ],
+  "view_order": [
+    "base",
+    "stronger_blur",
+    "stronger_noise",
+    "minimum_anchor",
+    "maximum_anchor"
+  ],
+  "input_range": [
+    0.0,
+    1.0
+  ]
+}

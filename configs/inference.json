@@ -1,0 +1,14 @@
+{
+  "lr_dir": "data/test/LR",
+  "output_dir": "outputs/SR",
+  "parent_checkpoint": "weights/sr/model_38501.pkl",
+  "ide_checkpoint": "weights/ide/best_ema.pth",
+  "sd_path": "weights/base/sd-turbo",
+  "ram_checkpoint": "weights/base/ram_swin_large_14m.pth",
+  "dape_checkpoint": "weights/dape/DAPE.pth",
+  "bert_path": "bert",
+  "pos_prompt": "A high-resolution infrared image with high-fidelity thermal edges, realistic emissivity textures, preserved fine thermal gradients, sharp and natural details.",
+  "neg_prompt": "stripe noise, banding, nonuniformity, fixed-pattern noise, hot pixels, ghosting, thermal texture loss, oversmoothing",
+  "seed": 42,
+  "align_method": "nofix"
+}
